@@ -4,12 +4,17 @@ function counter(){
     var steps = document.getElementById('txts')
     var res =   document.getElementById('res')
     if( from.value.length == 0 || to.value.length == 0 || steps.value.length == 0){
+        res.innerHTML = "Impossible to count"
         alert("Fill up the Data")
     }else{
         res.innerHTML = ``
         var f = Number(from.value)
         var t = Number(to.value)
         var s = Number(steps.value)
+        if (s <= 0){
+            window.alert("Number Invalid")
+            s = 1
+        }
         if( f < t){
             // Increasing count
              for( var c= f; c <= t; c = c + s){
